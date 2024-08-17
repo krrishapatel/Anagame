@@ -25,8 +25,6 @@ class AnagramExplorer:
             Returns:
                 bool: Returns True if the word pair fulfills all validation requirements, otherwise returns False
         '''
-        ### BEGIN SOLUTION
-
         word1 = pair[0]
         word2 = pair[1]
 
@@ -55,8 +53,6 @@ class AnagramExplorer:
         
         return True
 
-
-        ### END SOLUTION 
         
     def build_lookup_dict(self) -> dict:
         '''Creates a fast dictionary look-up (via either prime hash or sorted tuple) of all anagrams in a word corpus.
@@ -67,8 +63,6 @@ class AnagramExplorer:
             Returns:
                 dict: Returns a dictionary with  keys that return sorted lists of all anagrams of the key (per the corpus)
         '''
-        ### BEGIN SOLUTION
-
         lookup_dict = {}
         for word in self.corpus:
            #creates tuple of sorted letters as the key
@@ -81,7 +75,6 @@ class AnagramExplorer:
                  lookup_dict[key] = sorted(lookup_dict[key])
         return lookup_dict
 
-        ### END SOLUTION 
 
     def get_all_anagrams(self, letters: list[str]) -> set:
          '''
@@ -98,8 +91,6 @@ class AnagramExplorer:
             Returns:
               set: all unique words in corpus which form at least 1 anagram pair
          '''
-        ### BEGIN SOLUTION
-
          result = set()
          for key in self.anagram_lookup:
           is_valid = True
@@ -115,9 +106,7 @@ class AnagramExplorer:
                result.add(anagram)
 
          return result
-
-   
-        ### END SOLUTION 
+        
 
     def get_most_anagrams(self, letters:list[str]) -> str:
         '''Returns any word from one of the largest lists of anagrams that 
@@ -129,9 +118,6 @@ class AnagramExplorer:
             Returns:
               str: a single word from the largest anagram families
         '''
-  
-        ### BEGIN SOLUTION
-        
         max_anagram = ""
         max_length = 0
         for anagrams in self.anagram_lookup.values():
@@ -148,8 +134,6 @@ class AnagramExplorer:
                max_anagram = anagrams[0]
         return max_anagram
     
-
-        ### END SOLUTION 
 
 if __name__ == "__main__":
   words1 = [
