@@ -1,10 +1,3 @@
-'''
-This list of ~24,000 words has been pruned of some potentially offensive 
-words. Please help us maintain a culturally sensitive and safe environment
-by letting your instructor know if you notice a word that should  
-be removed or added.
-'''
-
 def get_valid_word_list():
 	return [
     "aa",
