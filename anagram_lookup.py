@@ -20,7 +20,6 @@ def build_sorted_hash_dict(corpus: list) -> dict:
        }
     
     '''
-    ### BEGIN SOLUTION
 
     dictionary = {}
     for word in corpus:
@@ -32,9 +31,6 @@ def build_sorted_hash_dict(corpus: list) -> dict:
     for key in dictionary:
         dictionary[key] = sorted(dictionary[key])
     return dictionary
-
-
-    ### END SOLUTION 
 
 
 prime_map = {'a': 2, 'b': 3, 'c': 5, 'd': 7, 'e': 11, 'f': 13,
@@ -70,7 +66,6 @@ def build_prime_hash_dict(corpus):
            17094: ["abled", "baled, "blade"]
        }
     '''
-    ### BEGIN SOLUTION
 
     prime_dictionary = {}
     for word in corpus:
@@ -81,10 +76,7 @@ def build_prime_hash_dict(corpus):
             prime_dictionary[hash].append(word)
     for key in prime_dictionary:
         prime_dictionary[key] = sorted(prime_dictionary[key])
-    return prime_dictionary
-
-
-    ### END SOLUTION 
+    return prime_dictionary 
 
 
 def get_most_anagrams(corpus:list)->list:
@@ -106,7 +98,6 @@ def get_most_anagrams(corpus:list)->list:
        ['art', 'pots']
        
     '''
-    ### BEGIN SOLUTION
  
     anagram_dict = build_sorted_hash_dict(corpus)
     max = 1
@@ -121,8 +112,6 @@ def get_most_anagrams(corpus:list)->list:
         return []
     return sorted(result)
 
-
-    ### END SOLUTION 
 
 def get_all_anagrams(corpus:list[str])->set:
     '''Creates a set of all unique words in a word corpus that could have been used to form an anagram pair.
@@ -139,7 +128,6 @@ def get_all_anagrams(corpus:list[str])->set:
         >>> get_all_anagrams(["abed","mouse", "bead", "baled", "abled", "rat", "blade"])
         {"abed",  "abled", "baled", "bead", "blade"}
     '''
-    ### BEGIN SOLUTION
 
     anagram_dict = build_sorted_hash_dict(corpus)
     result = set()
@@ -147,9 +135,7 @@ def get_all_anagrams(corpus:list[str])->set:
         if len(words) > 1:
             result.update(words)
     return result
-
-
-    ### END SOLUTION 
+    
 
 if __name__ == "__main__":
     words1 = ["abed","abet","abets","abut","acme","acre","acres","actors","actress","airmen","alert","alerted","ales","aligned","allergy","alter","altered","amen","anew","angel","angle","antler","apt",
