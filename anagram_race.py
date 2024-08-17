@@ -23,7 +23,6 @@ def basic_checks(word1:str, word2:str)-> tuple[bool, str, str]:
         >>> basic_checks("baste", "Beasts")
         False, baste, beasts
     '''
-    ### BEGIN SOLUTION
 
     word1 = word1.lower()
     word2 = word2.lower()
@@ -48,9 +47,7 @@ def basic_checks(word1:str, word2:str)-> tuple[bool, str, str]:
         return True, word1, word2
     else:
         return False, word1, word2
-
-
-    ### END SOLUTION 
+ 
 
 def is_anagram_exhaustive(word1:str, word2:str)->bool:
     '''Generate all possible permutations of the first word until you find one that is the second word.
@@ -63,7 +60,6 @@ def is_anagram_exhaustive(word1:str, word2:str)->bool:
        Returns:
         bool: True if word1 and word2 are anagrams, False otherwise 
     '''
-    ### BEGIN SOLUTION
     
     check, word1, word2 = basic_checks(word1, word2)
     if (check == False):
@@ -75,7 +71,6 @@ def is_anagram_exhaustive(word1:str, word2:str)->bool:
         return True
     else: return False
 
-    ### END SOLUTION 
 
 def is_anagram_checkoff(word1:str, word2:str)->bool:
     '''Create a parallel list-based version of the second word (strings are immutable).
@@ -88,7 +83,6 @@ def is_anagram_checkoff(word1:str, word2:str)->bool:
        Returns:
         bool: True if word1 and word2 are anagrams, False otherwise 
     '''
-    ### BEGIN SOLUTION
 
     check, word1, word2 = basic_checks(word1, word2)
     if (check == False):
@@ -106,7 +100,6 @@ def is_anagram_checkoff(word1:str, word2:str)->bool:
 
     return True
 
-    ### END SOLUTION 
 
 def is_anagram_lettercount(word1:str, word2:str)->bool:
     '''Two approaches:
@@ -125,7 +118,6 @@ def is_anagram_lettercount(word1:str, word2:str)->bool:
        Returns:
         bool: True if word1 and word2 are anagrams, False otherwise 
     '''
-    ### BEGIN SOLUTION
 
     check, word1, word2 = basic_checks(word1, word2)
     if (check == False):
@@ -150,7 +142,6 @@ def is_anagram_lettercount(word1:str, word2:str)->bool:
         return True
     return False
 
-    ### END SOLUTION 
 
 def is_anagram_sort_hash(word1:str, word2:str)->bool:
     '''Sort both words, then compare to see if they are exactly the same.
@@ -162,7 +153,6 @@ def is_anagram_sort_hash(word1:str, word2:str)->bool:
        Returns:
         bool: True if word1 and word2 are anagrams, False otherwise 
     '''
-    ### BEGIN SOLUTION
 
     check, word1, word2 = basic_checks(word1, word2)
     if (check == False):
@@ -178,7 +168,6 @@ def is_anagram_sort_hash(word1:str, word2:str)->bool:
         return True
     return False
 
-    ### END SOLUTION 
 
 ch_to_prime = {'a': 2, 'b': 3, 'c': 5, 'd': 7, 'e': 11, 'f': 13,
     'g': 17, 'h': 19, 'i': 23, 'j': 29, 'k': 31, 'l': 37, 'm': 41, 'n': 43,
@@ -197,7 +186,6 @@ def is_anagram_prime_hash(word1:str, word2:str)->bool:
        Returns:
         bool: True if word1 and word2 are anagrams, False otherwise 
     '''
-    ### BEGIN SOLUTION
 
     check, word1, word2 = basic_checks(word1, word2)
     if (check == False):
@@ -216,7 +204,6 @@ def is_anagram_prime_hash(word1:str, word2:str)->bool:
         return True
     return False
 
-    ### END SOLUTION 
 
 if __name__ == "__main__":
     algorithms = [is_anagram_exhaustive, is_anagram_checkoff, is_anagram_lettercount, is_anagram_sort_hash, is_anagram_prime_hash]
