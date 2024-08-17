@@ -23,9 +23,7 @@ def generate_letters(fun_factor: int, distribution: str, explorer:AnagramExplore
          >>> generate_letters(75, "scrabble", explorer)
          ["p", "o", "t", "s", "r", "i", "a"]
    '''
-   letters = ["p", "o", "t", "s", "r", "i", "a"]  # Tip: Start with a consistent list of letters for testing purposes
-
-   ### BEGIN SOLUTION
+   letters = ["p", "o", "t", "s", "r", "i", "a"] 
 
    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
@@ -77,9 +75,6 @@ def generate_letters(fun_factor: int, distribution: str, explorer:AnagramExplore
    return letters
 
 
-   ### END SOLUTION 
-   return letters
-
 def parse_guess(guess:str) -> tuple:
     '''Splits an entered guess into a two word tuple with all white space removed
         Args:
@@ -101,9 +96,7 @@ def parse_guess(guess:str) -> tuple:
 
         >>> parse_guess("eat tea")
         ("", "")
-    '''
-    ### BEGIN SOLUTION
-    
+    '''    
     for i in range(len(guess)):
         if guess[i:i+1] == " " or guess[i+1:i] == " " or guess[i:i+1] == "  ":
             guess = guess[0:i] + guess[i+1:]
@@ -114,8 +107,6 @@ def parse_guess(guess:str) -> tuple:
     else:
         return guess[0], guess[1]
 
-
-   ### END SOLUTION 
 
 def play_game(time_limit: int, letters: list, explorer:AnagramExplorer) -> list:
     '''Plays a single game of AnaGame
@@ -128,8 +119,6 @@ def play_game(time_limit: int, letters: list, explorer:AnagramExplorer) -> list:
        Returns:
           A list of tuples reprsenting all player guesses
    '''
-    ### BEGIN SOLUTION
-
     start_time = time.time()
     guesses = []
 
@@ -146,8 +135,6 @@ def play_game(time_limit: int, letters: list, explorer:AnagramExplorer) -> list:
             continue
         guesses.append(parsed_guess)
 
-
-    ### END SOLUTION
 
 def calc_stats(guesses: list, letters: list, explorer) -> dict:
     '''Aggregates several statistics into a single dictionary with the following key-value pairs:
@@ -192,7 +179,6 @@ def calc_stats(guesses: list, letters: list, explorer) -> dict:
     stats["skill"] = 0    #truncated int percentage representing unique guessed words out of all possible unique anagram words
     stats["guessed"] = set() #unique valid guessed words
     stats["not guessed"] = set() #unique words the player could have guessed, but didn’t
-    ### BEGIN SOLUTION
 
     all_possible_anagrams = set(explorer.get_all_anagrams(letters)) 
     unique_valid_guesses = set()
@@ -221,7 +207,6 @@ def calc_stats(guesses: list, letters: list, explorer) -> dict:
     else:
         0
 
-    ### END SOLUTION 
 
     return stats
 
